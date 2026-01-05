@@ -3,1528 +3,816 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ونش إنقاذ العلمين | الأسطورة تبدأ من هنا</title>
-    <meta name="description" content="أسطورة الإنقاذ على الطريق - أسرع خدمة، أحدث معدات، فريق الأساطير. اتصل: 01557290660">
-    
-    <!-- Fonts & Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>ونش إنقاذ العلمين | خدمة سريعة على الموبايل</title>
     
     <style>
-        /* ===== CSS Variables (الألوان الأصلية) ===== */
-        :root {
-            --primary: #1a365d;      /* أزرق داكن */
-            --secondary: #e53e3e;    /* أحمر */
-            --accent: #d69e2e;       /* ذهبي */
-            --light: #f7fafc;
-            --dark: #2d3748;
-            --gray: #718096;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            --radius: 16px;
-            --gradient: linear-gradient(135deg, var(--primary), #2d3748);
-            --gradient-accent: linear-gradient(135deg, var(--secondary), var(--accent));
-        }
-
-        /* ===== Reset & Base ===== */
+        /* أساسيات الموقع */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
         }
-
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-
+        
         body {
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            line-height: 1.8;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            max-width: 100%;
             overflow-x: hidden;
-            position: relative;
         }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(229, 62, 62, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(214, 158, 46, 0.1) 0%, transparent 50%);
-            z-index: -1;
-        }
-
+        
         .container {
-            width: 90%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* ===== Particles Background ===== */
-        #particles-js {
-            position: fixed;
             width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
+            padding: 15px;
         }
-
-        /* ===== Header (Floating) ===== */
-        header {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 95%;
-            max-width: 1300px;
-            background: rgba(26, 54, 93, 0.9);
-            backdrop-filter: blur(20px);
-            border-radius: 50px;
-            padding: 15px 30px;
-            z-index: 1000;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(214, 158, 46, 0.2);
-            transition: var(--transition);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            position: relative;
-        }
-
-        .logo-icon {
-            font-size: 2.5rem;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .logo-text h1 {
-            font-size: 1.8rem;
-            font-weight: 900;
-            background: linear-gradient(90deg, var(--accent), white);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
-        }
-
-        .logo-text p {
-            font-size: 0.8rem;
-            opacity: 0.8;
-            margin-top: 2px;
-        }
-
-        /* Navigation */
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav a {
+        
+        /* الهيدر */
+        .header {
+            background: linear-gradient(135deg, #1a365d, #2a4a7a);
             color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            padding: 10px 0;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        nav a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 0;
-            height: 3px;
-            background: var(--accent);
-            border-radius: 3px;
-            transition: var(--transition);
-        }
-
-        nav a:hover::before {
-            width: 100%;
-        }
-
-        .header-contact {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .phone-btn {
-            background: var(--gradient-accent);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .phone-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .phone-btn:hover::before {
-            left: 100%;
-        }
-
-        .phone-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(229, 62, 62, 0.4);
-        }
-
-        /* ===== Cinematic Hero ===== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding-top: 100px;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7)),
-                url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            z-index: -2;
-        }
-
-        .hero-content {
+            padding: 20px 15px;
             text-align: center;
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            border-bottom: 3px solid #d69e2e;
         }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 900;
+        
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            font-weight: 800;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+        
+        /* زر الاتصال العائم */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 0 15px;
+            z-index: 100;
+        }
+        
+        .call-btn, .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 18px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 17px;
+            flex: 1;
+            max-width: 200px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            transition: all 0.3s ease;
+        }
+        
+        .call-btn {
+            background: linear-gradient(135deg, #e53e3e, #c53030);
+            color: white;
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+        }
+        
+        .call-btn:hover, .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+        }
+        
+        /* المحتوى الرئيسي */
+        .main-content {
+            margin-top: 110px;
+            margin-bottom: 120px;
+        }
+        
+        /* قسم البطل */
+        .hero {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 1px solid #eaeaea;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 220px;
+            border-radius: 15px;
+            overflow: hidden;
             margin-bottom: 20px;
-            line-height: 1.1;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, var(--accent), white);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            opacity: 0;
-            transform: translateY(50px);
-            animation: slideUp 1s 0.5s forwards;
+            border: 3px solid #1a365d;
         }
-
-        @keyframes slideUp {
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero h2 {
+            color: #1a365d;
+            margin-bottom: 15px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        /* قسم الإحصائيات */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid #d69e2e;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .stat-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: #e53e3e;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .stat-text {
+            font-size: 14px;
+            color: #555;
+            font-weight: 600;
+        }
+        
+        /* قسم الخدمات */
+        .services {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            color: #1a365d;
+            margin-bottom: 20px;
+            font-size: 22px;
+            padding-right: 15px;
+            border-right: 5px solid #d69e2e;
+            font-weight: 800;
+            position: relative;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 0;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-title {
+            color: #1a365d;
+            margin-bottom: 10px;
+            font-size: 19px;
+            font-weight: 700;
+        }
+        
+        .service-desc {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        
+        .service-price {
+            color: #e53e3e;
+            font-weight: 800;
+            font-size: 22px;
+            background: #fff5f5;
+            padding: 8px 15px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 2px solid #ffe0e0;
+        }
+        
+        /* معرض الصور */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .gallery-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #eaeaea;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+        }
+        
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-image img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-title {
+            padding: 15px;
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+            font-weight: 600;
+            background: white;
+        }
+        
+        /* قسم الاتصال */
+        .contact-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 1px solid #eaeaea;
+        }
+        
+        .contact-info {
+            margin-bottom: 25px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-right: 4px solid #d69e2e;
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1a365d, #2a4a7a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        
+        .info-text h4 {
+            color: #1a365d;
+            margin-bottom: 5px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        .info-text p {
+            color: #555;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .contact-btn {
+            flex: 1;
+            padding: 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 17px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .contact-call {
+            background: linear-gradient(135deg, #e53e3e, #c53030);
+            color: white;
+        }
+        
+        .contact-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+        }
+        
+        /* الفوتر */
+        .footer {
+            background: linear-gradient(135deg, #1a365d, #2a4a7a);
+            color: white;
+            padding: 40px 20px 25px;
+            text-align: center;
+            margin-top: 30px;
+            border-top: 5px solid #d69e2e;
+        }
+        
+        .footer-logo {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #d69e2e;
+            font-weight: 800;
+        }
+        
+        .footer-tagline {
+            font-size: 16px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .social-link {
+            width: 55px;
+            height: 55px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .social-link:hover {
+            background: #d69e2e;
+            transform: translateY(-5px);
+            border-color: #d69e2e;
+        }
+        
+        .copyright {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            line-height: 1.8;
+        }
+        
+        /* تحسينات للجوال */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 22px;
+            }
+            
+            .hero h2 {
+                font-size: 20px;
+            }
+            
+            .hero p {
+                font-size: 15px;
+            }
+            
+            .call-btn, .whatsapp-btn {
+                padding: 16px 20px;
+                font-size: 16px;
+                max-width: 180px;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+            }
+            
+            .stat-number {
+                font-size: 24px;
+            }
+            
+            .service-title {
+                font-size: 18px;
+            }
+            
+            .service-price {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .header h1 {
+                font-size: 20px;
+            }
+            
+            .hero-image {
+                height: 180px;
+            }
+            
+            .service-image {
+                height: 150px;
+            }
+        }
+        
+        /* أنيميشن بسيطة */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 50px;
-            opacity: 0.9;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: slideUp 1s 0.8s forwards;
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
         }
-
-        /* Stats */
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 60px 0;
-            flex-wrap: wrap;
+        
+        .delay-1 {
+            animation-delay: 0.2s;
         }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(214, 158, 46, 0.2);
-            border-radius: var(--radius);
-            padding: 30px;
-            min-width: 180px;
-            text-align: center;
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: slideUp 1s 1.1s forwards;
+        
+        .delay-2 {
+            animation-delay: 0.4s;
         }
-
-        .stat-card:nth-child(2) { animation-delay: 1.3s; }
-        .stat-card:nth-child(3) { animation-delay: 1.5s; }
-
-        .stat-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(214, 158, 46, 0.2);
+        
+        .delay-3 {
+            animation-delay: 0.6s;
         }
-
-        .stat-number {
-            font-size: 3rem;
+        
+        /* تحسينات عامة */
+        .highlight {
+            color: #e53e3e;
             font-weight: 800;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: block;
-            line-height: 1;
         }
-
-        /* ===== 3D Winch Model Section ===== */
-        .winch-3d {
-            padding: 150px 0;
-            position: relative;
-            background: var(--gradient);
+        
+        .note {
+            background: #fff8e1;
+            border-right: 4px solid #d69e2e;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #666;
         }
-
-        .winch-3d::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            left: 0;
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(transparent, var(--primary));
-            filter: blur(20px);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-title h2 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 20px;
-            position: relative;
+        
+        .badge {
+            background: #e53e3e;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
             display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 200px;
-            height: 5px;
-            background: var(--gradient-accent);
-            bottom: -15px;
-            right: 50%;
-            transform: translateX(50%);
-            border-radius: 5px;
-        }
-
-        .winch-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .winch-model {
-            height: 500px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid rgba(214, 158, 46, 0.3);
-        }
-
-        .winch-model::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-            filter: blur(40px);
-            opacity: 0.2;
-        }
-
-        .winch-controls {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .control-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(214, 158, 46, 0.3);
-            color: white;
-            padding: 20px 30px;
-            border-radius: var(--radius);
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .control-btn:hover {
-            background: rgba(214, 158, 46, 0.1);
-            border-color: var(--accent);
-            transform: translateX(-10px);
-        }
-
-        /* ===== Live Tracker ===== */
-        .tracker {
-            padding: 150px 0;
-            background: linear-gradient(135deg, #0f172a 0%, #1a365d 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tracker::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%23d69e2e" opacity="0.2"/></svg>') 0 0/50px 50px;
-        }
-
-        .tracker-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .map {
-            height: 400px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: var(--radius);
-            position: relative;
-            overflow: hidden;
-            border: 2px solid rgba(229, 62, 62, 0.3);
-        }
-
-        .map::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(90deg, transparent 50%, rgba(214, 158, 46, 0.1) 50%),
-                linear-gradient(transparent 50%, rgba(214, 158, 46, 0.1) 50%);
-            background-size: 50px 50px;
-        }
-
-        .live-dot {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--secondary);
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 30px var(--secondary);
-            animation: pulseDot 2s infinite;
-        }
-
-        @keyframes pulseDot {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-            50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.5; }
-        }
-
-        .countdown {
-            text-align: center;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 40px;
-            border-radius: var(--radius);
-            border: 2px solid rgba(229, 62, 62, 0.3);
-        }
-
-        .countdown h3 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: var(--accent);
-        }
-
-        #timer {
-            font-size: 4rem;
-            font-weight: 900;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-            font-family: 'Cairo', monospace;
-        }
-
-        /* ===== Interactive Services ===== */
-        .services {
-            padding: 150px 0;
-            background: var(--gradient);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius);
-            padding: 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(214, 158, 46, 0.1);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(214, 158, 46, 0.1), transparent);
-            transition: 0.6s;
-        }
-
-        .service-card:hover::before {
-            left: 100%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-20px);
-            border-color: var(--accent);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .service-icon {
-            font-size: 3.5rem;
-            margin-bottom: 25px;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .service-price {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--accent);
-            margin-top: 20px;
-        }
-
-        /* ===== Testimonials Carousel ===== */
-        .testimonials {
-            padding: 150px 0;
-            background: linear-gradient(135deg, #0f172a 0%, #1a365d 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonials-slider {
-            display: flex;
-            gap: 30px;
-            overflow-x: auto;
-            padding: 20px 0;
-            scrollbar-width: none;
-        }
-
-        .testimonials-slider::-webkit-scrollbar {
-            display: none;
-        }
-
-        .testimonial-card {
-            min-width: 400px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius);
-            padding: 40px;
-            border: 1px solid rgba(214, 158, 46, 0.2);
-        }
-
-        .client-rating {
-            color: var(--accent);
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        /* ===== Interactive Contact ===== */
-        .contact {
-            padding: 150px 0;
-            background: var(--gradient);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 50px;
-            border-radius: var(--radius);
-            border: 1px solid rgba(214, 158, 46, 0.2);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(214, 158, 46, 0.2);
-            border-radius: var(--radius);
-            color: white;
-            font-size: 1.1rem;
-            font-family: 'Cairo', sans-serif;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 20px rgba(214, 158, 46, 0.3);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: var(--gradient-accent);
-            color: white;
-            border: none;
-            border-radius: var(--radius);
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(229, 62, 62, 0.3);
-        }
-
-        /* ===== Emergency Button ===== */
-        .emergency-btn {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            z-index: 1000;
-            animation: emergencyPulse 1.5s infinite;
-        }
-
-        @keyframes emergencyPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .emergency-btn a {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: var(--gradient-accent);
-            color: white;
-            padding: 20px 30px;
-            border-radius: 50px;
-            font-weight: 900;
-            font-size: 1.2rem;
-            text-decoration: none;
-            box-shadow: 0 20px 50px rgba(229, 62, 62, 0.5);
-            transition: var(--transition);
-        }
-
-        .emergency-btn a:hover {
-            transform: scale(1.05);
-            box-shadow: 0 30px 70px rgba(229, 62, 62, 0.7);
-        }
-
-        /* ===== Footer ===== */
-        footer {
-            background: #0f172a;
-            padding: 80px 0 30px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient-accent);
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
-        }
-
-        .footer-logo h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-icons a {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            color: var(--accent);
-            font-size: 1.3rem;
-            transition: var(--transition);
-        }
-
-        .social-icons a:hover {
-            background: var(--gradient-accent);
-            color: white;
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        /* ===== Responsive Design ===== */
-        @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-            
-            .winch-container,
-            .tracker-container,
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .winch-model {
-                height: 400px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                top: 10px;
-                padding: 12px 20px;
-                width: 90%;
-            }
-            
-            .logo-text h1 {
-                font-size: 1.4rem;
-            }
-            
-            nav {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2.5rem;
-            }
-            
-            .stat-card {
-                padding: 20px;
-                min-width: 140px;
-            }
-            
-            .stat-number {
-                font-size: 2.2rem;
-            }
-            
-            .emergency-btn {
-                bottom: 20px;
-                left: 20px;
-            }
-            
-            .emergency-btn a {
-                padding: 15px 25px;
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero {
-                padding-top: 120px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-stats {
-                gap: 20px;
-            }
-            
-            .stat-card {
-                min-width: 120px;
-                padding: 15px;
-            }
-            
-            .testimonial-card {
-                min-width: 300px;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ===== Custom Scrollbar ===== */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--primary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gradient-accent);
-            border-radius: 6px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-        }
-
-        /* ===== Floating Elements ===== */
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* ===== Glitch Effect ===== */
-        .glitch {
-            position: relative;
-        }
-
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.8;
-        }
-
-        .glitch::before {
-            animation: glitch-effect 3s infinite;
-            color: var(--secondary);
-            z-index: -1;
-        }
-
-        .glitch::after {
-            animation: glitch-effect 2s infinite;
-            color: var(--accent);
-            z-index: -2;
-        }
-
-        @keyframes glitch-effect {
-            0% { transform: translate(0); }
-            20% { transform: translate(-3px, 3px); }
-            40% { transform: translate(-3px, -3px); }
-            60% { transform: translate(3px, 3px); }
-            80% { transform: translate(3px, -3px); }
-            100% { transform: translate(0); }
-        }
-
-        /* ===== Typing Effect ===== */
-        .typing {
-            overflow: hidden;
-            border-right: 3px solid var(--accent);
-            white-space: nowrap;
-            margin: 0 auto;
-            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--accent) }
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
-    <!-- Particles Background -->
-    <div id="particles-js"></div>
+    <!-- الهيدر -->
+    <div class="header">
+        <h1>ونش إنقاذ العلمين</h1>
+        <p>🚛 الإنقاذ السريع على مدار الساعة - وصول في 15 دقيقة</p>
+    </div>
 
-    <!-- Floating Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-truck-pickup"></i>
-                </div>
-                <div class="logo-text">
-                    <h1>ونش إنقاذ العلمين</h1>
-                    <p>أسطورة الإنقاذ على الطريق</p>
-                </div>
-            </div>
-            
-            <nav>
-                <ul>
-                    <li><a href="#home">الرئيسية</a></li>
-                    <li><a href="#winch">الونش التفاعلي</a></li>
-                    <li><a href="#tracker">المتابعة الحية</a></li>
-                    <li><a href="#services">خدماتنا</a></li>
-                    <li><a href="#contact">اتصل بنا</a></li>
-                </ul>
-            </nav>
-            
-            <div class="header-contact">
-                <a href="tel:01557290660" class="phone-btn">
-                    <i class="fas fa-phone-alt"></i> 01557290660
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Cinematic Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-bg"></div>
-        <div class="container hero-content">
-            <h1 class="glitch" data-text="ونش إنقاذ العلمين">ونش إنقاذ العلمين</h1>
-            <p class="typing">الأسطورة تبدأ من هنا... حيث السرعة تلتقي بالاحترافية</p>
-            
-            <div class="hero-btns">
-                <a href="#contact" class="phone-btn" style="margin: 10px;">
-                    <i class="fas fa-play-circle"></i> شاهد الفيديو التعريفي
-                </a>
-                <a href="https://wa.me/201557290660" target="_blank" class="phone-btn" style="background: linear-gradient(135deg, #25D366, #128C7E); margin: 10px;">
-                    <i class="fab fa-whatsapp"></i> محادثة مباشرة
-                </a>
-            </div>
-            
-            <div class="hero-stats">
-                <div class="stat-card floating">
-                    <span class="stat-number">15</span>
-                    <span class="stat-text">دقيقة وصول</span>
-                </div>
-                <div class="stat-card floating" style="animation-delay: 0.5s;">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-text">خدمة مستمرة</span>
-                </div>
-                <div class="stat-card floating" style="animation-delay: 1s;">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-text">رضا العملاء</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3D Winch Interactive Section -->
-    <section class="winch-3d" id="winch">
-        <div class="container">
-            <div class="section-title">
-                <h2>الونش التفاعلي</h2>
-                <p>قم بتجربة الونش الخاص بنا بشكل تفاعلي ثلاثي الأبعاد</p>
-            </div>
-            
-            <div class="winch-container">
-                <div class="winch-model">
-                    <div class="winch-3d-placeholder">
-                        <i class="fas fa-truck-pickup" style="font-size: 10rem; color: var(--accent);"></i>
-                        <div class="floating" style="position: absolute; bottom: 50px; font-size: 1.2rem; opacity: 0.8;">
-                            جرب التحكم في الأسفل ←
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="winch-controls">
-                    <button class="control-btn" onclick="rotateWinch('left')">
-                        <i class="fas fa-rotate-left"></i>
-                        تدوير لليسار
-                    </button>
-                    <button class="control-btn" onclick="liftWinch()">
-                        <i class="fas fa-arrow-up"></i>
-                        رفع السيارة
-                    </button>
-                    <button class="control-btn" onclick="rotateWinch('right')">
-                        <i class="fas fa-rotate-right"></i>
-                        تدوير لليمين
-                    </button>
-                    <button class="control-btn" onclick="activateLights()">
-                        <i class="fas fa-lightbulb"></i>
-                        تشغيل الأضواء
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Live Tracker Section -->
-    <section class="tracker" id="tracker">
-        <div class="container">
-            <div class="section-title">
-                <h2>المتابعة الحية</h2>
-                <p>تابع موقع الونش لحظياً واعرف وقت الوصول الدقيق</p>
-            </div>
-            
-            <div class="tracker-container">
-                <div class="map">
-                    <div class="live-dot"></div>
-                </div>
-                
-                <div class="countdown">
-                    <h3>وصول الونش خلال:</h3>
-                    <div id="timer">15:00</div>
-                    <p>الموقع الحالي: طريق العلمين الساحلي</p>
-                    <p>المسافة المتبقية: 8.5 كم</p>
-                    
-                    <button class="control-btn" onclick="resetTimer()" style="margin-top: 30px;">
-                        <i class="fas fa-redo"></i>
-                        طلب ونش جديد
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Services -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>خدمات الأسطورة</h2>
-                <p>نقدم خدمات لا يمكن للآخرين تقديمها</p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card" onclick="selectService('normal')">
-                    <div class="service-icon">
-                        <i class="fas fa-car-crash"></i>
-                    </div>
-                    <h3>إنقاذ عادي</h3>
-                    <p>خدمة إنقاذ سريعة للسيارات المعطلة</p>
-                    <div class="service-price">150 ج.م</div>
-                    <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 10px;">انقر للتحديد</p>
-                </div>
-                
-                <div class="service-card" onclick="selectService('emergency')">
-                    <div class="service-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>إنقاذ طارئ</h3>
-                    <p>وصول فوري خلال 10 دقائق كحد أقصى</p>
-                    <div class="service-price">250 ج.م</div>
-                    <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 10px;">انقر للتحديد</p>
-                </div>
-                
-                <div class="service-card" onclick="selectService('heavy')">
-                    <div class="service-icon">
-                        <i class="fas fa-truck-moving"></i>
-                    </div>
-                    <h3>مركبات ثقيلة</h3>
-                    <p>إنقاذ الشاحنات والمعدات الثقيلة</p>
-                    <div class="service-price">500 ج.م</div>
-                    <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 10px;">انقر للتحديد</p>
-                </div>
-                
-                <div class="service-card" onclick="selectService('night')">
-                    <div class="service-icon">
-                        <i class="fas fa-moon"></i>
-                    </div>
-                    <h3>خدمة ليلية</h3>
-                    <p>إنقاذ في الظلام مع إضاءة خاصة</p>
-                    <div class="service-price">200 ج.م</div>
-                    <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 10px;">انقر للتحديد</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>قصص النجاح</h2>
-                <p>ماذا يقول عملاؤنا عن تجربتهم مع الأسطورة</p>
-            </div>
-            
-            <div class="testimonials-slider" id="testimonialsSlider">
-                <div class="testimonial-card">
-                    <div class="client-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"والله ما شفت خدمة بهذا السرعة! الوصلوا في 12 دقيقة بالضبط، والونش كان حديث جداً."</p>
-                    <div style="margin-top: 20px; font-weight: 600; color: var(--accent);">
-                        أحمد محمد - سائق سيارة نقل
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="client-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"الخدمة الليلية كانت سريعة ورائعة، الأضواء كانت كافية وكأنه نهار!"</p>
-                    <div style="margin-top: 20px; font-weight: 600; color: var(--accent);">
-                        سارة خالد - مسافرة على الطريق الساحلي
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="client-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"الشاحنة كانت محملة بالمواد الغذائية، أنقذوا الموقف في وقت قياسي. محترفين جداً!"</p>
-                    <div style="margin-top: 20px; font-weight: 600; color: var(--accent);">
-                        محمد علي - مالك شركة أغذية
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>كن جزءاً من الأسطورة</h2>
-                <p>تواصل معنا وسترى الفرق</p>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-form">
-                    <h3 style="margin-bottom: 30px; color: var(--accent);">احجز خدمتك الآن</h3>
-                    
-                    <form id="serviceForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="الاسم الكامل" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="tel" placeholder="رقم الهاتف" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="text" placeholder="موقع السيارة (شارع/معلم)" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <textarea rows="4" placeholder="وصف المشكلة (اختياري)"></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <select style="width: 100%; padding: 15px 20px; background: rgba(255,255,255,0.05); border: 2px solid rgba(214,158,46,0.2); border-radius: var(--radius); color: white; font-size: 1.1rem;">
-                                <option value="" disabled selected>اختر نوع الخدمة</option>
-                                <option value="normal">إنقاذ عادي (150 ج.م)</option>
-                                <option value="emergency">إنقاذ طارئ (250 ج.م)</option>
-                                <option value="heavy">مركبات ثقيلة (500 ج.م)</option>
-                                <option value="night">خدمة ليلية (200 ج.م)</option>
-                            </select>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">
-                            <i class="fas fa-paper-plane"></i> إرسال الطلب
-                        </button>
-                    </form>
-                </div>
-                
-                <div>
-                    <h3 style="font-size: 2.5rem; margin-bottom: 30px; color: var(--accent);">لماذا نحن الأسطورة؟</h3>
-                    
-                    <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: var(--radius); margin-bottom: 20px;">
-                        <h4 style="color: var(--accent); margin-bottom: 10px;">
-                            <i class="fas fa-bolt"></i> أسرع استجابة في المنطقة
-                        </h4>
-                        <p>متوسط وقت الوصول: 15 دقيقة فقط</p>
-                    </div>
-                    
-                    <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: var(--radius); margin-bottom: 20px;">
-                        <h4 style="color: var(--accent); margin-bottom: 10px;">
-                            <i class="fas fa-shield-alt"></i> معدات حديثة وآمنة
-                        </h4>
-                        <p>أحدث أجهزة الونش والتأمين</p>
-                    </div>
-                    
-                    <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: var(--radius);">
-                        <h4 style="color: var(--accent); margin-bottom: 10px;">
-                            <i class="fas fa-user-tie"></i> فريق محترف ومدرب
-                        </h4>
-                        <p>خبرة أكثر من 10 سنوات في الإنقاذ</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Emergency Button -->
-    <div class="emergency-btn">
-        <a href="tel:01557290660">
-            <i class="fas fa-phone-alt"></i>
-            طوارئ! اتصل الآن
+    <!-- الأزرار العائمة -->
+    <div class="floating-buttons">
+        <a href="tel:01557290660" class="call-btn fade-in">
+            <span>📞</span> اتصل الآن
+        </a>
+        <a href="https://wa.me/201557290660" target="_blank" class="whatsapp-btn fade-in">
+            <span>💬</span> واتساب
         </a>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-logo">
-                    <h3>ونش إنقاذ العلمين</h3>
-                    <p>الأسطورة الحقيقية لإنقاذ السيارات في مصر</p>
-                    <p style="margin-top: 20px; opacity: 0.8;">
-                        <i class="fas fa-map-marker-alt"></i> العلمين، مطروح، مصر
-                    </p>
-                    
-                    <div class="social-icons">
-                        <a href="https://wa.me/201557290660" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="tel:01557290660">
-                            <i class="fas fa-phone-alt"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
+    <!-- المحتوى الرئيسي -->
+    <div class="container main-content">
+        <!-- قسم البطل -->
+        <div class="hero fade-in">
+            <div class="hero-image">
+                <img src="https://i.ibb.co/3z62Nx2/winch1-fixed.jpg" alt="ونش إنقاذ العلمين - الونش الرئيسي">
+            </div>
+            <h2>🚛 ونش إنقاذ العلمين</h2>
+            <p>خدمة الإنقاذ <span class="highlight">الأسرع في المنطقة</span>. نصل إليك في <span class="highlight">15 دقيقة فقط</span>! فريق محترف، معدات حديثة، وخدمة على مدار الساعة.</p>
+            
+            <div class="note">
+                <strong>⚠️ في حالة طارئة؟</strong> اتصل مباشرة على <span class="highlight">01557290660</span> - الرد فوري!
+            </div>
+        </div>
+
+        <!-- الإحصائيات -->
+        <div class="stats">
+            <div class="stat-card fade-in delay-1">
+                <div class="stat-number">15</div>
+                <div class="stat-text">دقيقة وصول</div>
+            </div>
+            <div class="stat-card fade-in delay-2">
+                <div class="stat-number">24/7</div>
+                <div class="stat-text">خدمة مستمرة</div>
+            </div>
+            <div class="stat-card fade-in delay-3">
+                <div class="stat-number">100%</div>
+                <div class="stat-text">ضمان الخدمة</div>
+            </div>
+        </div>
+
+        <!-- الخدمات -->
+        <div class="services">
+            <h3 class="section-title fade-in">📦 خدماتنا المتكاملة</h3>
+            
+            <div class="service-card fade-in delay-1">
+                <div class="service-image">
+                    <img src="https://i.ibb.co/CWm6tBK/winch2-fixed.jpg" alt="إنقاذ السيارات - ونش إنقاذ العلمين">
+                </div>
+                <div class="service-content">
+                    <div class="badge">الأكثر طلباً</div>
+                    <h4 class="service-title">🚗 إنقاذ السيارات</h4>
+                    <p class="service-desc">خدمة إنقاذ سريعة للسيارات المعطلة أو المتورطة في حوادث على الطريق. نضمن الوصول السريع والنقل الآمن.</p>
+                    <div class="service-price">150 جنيه</div>
+                </div>
+            </div>
+            
+            <div class="service-card fade-in delay-2">
+                <div class="service-image">
+                    <img src="https://i.ibb.co/QbqmJmY/winch3-fixed.jpg" alt="مساعدة على الطريق - ونش إنقاذ العلمين">
+                </div>
+                <div class="service-content">
+                    <h4 class="service-title">🛠️ مساعدة على الطريق</h4>
+                    <p class="service-desc">تغيير الإطارات، بدء تشغيل البطارية، تزويد الوقود، وإصلاحات بسيطة على الطريق.</p>
+                    <div class="service-price">50 جنيه</div>
+                </div>
+            </div>
+            
+            <div class="service-card fade-in delay-1">
+                <div class="service-image">
+                    <img src="https://i.ibb.co/StKyb0J/winch4-fixed.jpg" alt="نقل المركبات الثقيلة - ونش إنقاذ العلمين">
+                </div>
+                <div class="service-content">
+                    <h4 class="service-title">🚚 نقل مركبات ثقيلة</h4>
+                    <p class="service-desc">إنقاذ ونقل الشاحنات، الحافلات، والمعدات الثقيلة باستخدام معدات متخصصة وآمنة.</p>
+                    <div class="service-price">300 جنيه</div>
+                </div>
+            </div>
+            
+            <div class="service-card fade-in delay-2">
+                <div class="service-image">
+                    <img src="https://i.ibb.co/6nL72vT/winch5-fixed.jpg" alt="خدمة ليلية - ونش إنقاذ العلمين">
+                </div>
+                <div class="service-content">
+                    <div class="badge">خدمة مميزة</div>
+                    <h4 class="service-title">🌙 خدمة ليلية</h4>
+                    <p class="service-desc">خدمة الإنقاذ متاحة طوال الليل مع إضاءة قوية وفرق مدربة للعمل في الظلام.</p>
+                    <div class="service-price">200 جنيه</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- معرض الصور -->
+        <div>
+            <h3 class="section-title fade-in">📸 معرض صور الونش</h3>
+            <div class="gallery">
+                <div class="gallery-item fade-in delay-1">
+                    <div class="gallery-image">
+                        <img src="https://i.ibb.co/N9tXZDL/winch6-fixed.jpg" alt="الونش من الجانب - ونش إنقاذ العلمين">
+                    </div>
+                    <div class="gallery-title">الونش من الجانب</div>
+                </div>
+                <div class="gallery-item fade-in delay-2">
+                    <div class="gallery-image">
+                        <img src="https://i.ibb.co/WBwmJPN/winch7-fixed.jpg" alt="معدات الونش - ونش إنقاذ العلمين">
+                    </div>
+                    <div class="gallery-title">المعدات والأجهزة</div>
+                </div>
+                <div class="gallery-item fade-in delay-1">
+                    <div class="gallery-image">
+                        <img src="https://i.ibb.co/QbqmJmY/winch3-fixed.jpg" alt="مقدمة الونش - ونش إنقاذ العلمين">
+                    </div>
+                    <div class="gallery-title">مقدمة الونش</div>
+                </div>
+                <div class="gallery-item fade-in delay-2">
+                    <div class="gallery-image">
+                        <img src="https://i.ibb.co/StKyb0J/winch4-fixed.jpg" alt="خلفية الونش - ونش إنقاذ العلمين">
+                    </div>
+                    <div class="gallery-title">خلفية الونش</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- الاتصال -->
+        <div class="contact-card fade-in">
+            <h3 class="section-title">📞 تواصل معنا الآن</h3>
+            
+            <div class="contact-info">
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div class="info-text">
+                        <h4>رقم الهاتف</h4>
+                        <p>01557290660</p>
                     </div>
                 </div>
                 
-                <div>
-                    <h4 style="color: var(--accent); margin-bottom: 20px;">روابط سريعة</h4>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 10px;">
-                            <a href="#home" style="color: white; text-decoration: none; opacity: 0.8; transition: var(--transition);">
-                                الرئيسية
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="#winch" style="color: white; text-decoration: none; opacity: 0.8; transition: var(--transition);">
-                                الونش التفاعلي
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="#tracker" style="color: white; text-decoration: none; opacity: 0.8; transition: var(--transition);">
-                                المتابعة الحية
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="#contact" style="color: white; text-decoration: none; opacity: 0.8; transition: var(--transition);">
-                                اتصل بنا
-                            </a>
-                        </li>
-                    </ul>
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <h4>منطقة الخدمة</h4>
+                        <p>العلمين، الساحل الشمالي، والمناطق المحيطة</p>
+                    </div>
                 </div>
                 
-                <div>
-                    <h4 style="color: var(--accent); margin-bottom: 20px;">خدماتنا</h4>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 10px; opacity: 0.8;">إنقاذ عادي</li>
-                        <li style="margin-bottom: 10px; opacity: 0.8;">إنقاذ طارئ</li>
-                        <li style="margin-bottom: 10px; opacity: 0.8;">مركبات ثقيلة</li>
-                        <li style="margin-bottom: 10px; opacity: 0.8;">خدمة ليلية</li>
-                    </ul>
+                <div class="info-item">
+                    <div class="info-icon">⏰</div>
+                    <div class="info-text">
+                        <h4>مواعيد العمل</h4>
+                        <p>24 ساعة طوال أيام الأسبوع</p>
+                    </div>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>جميع الحقوق محفوظة &copy; <span id="currentYear"></span> ونش إنقاذ العلمين | أسطورة الإنقاذ</p>
-                <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">تم التصميم بكل فخر لتقديم أفضل تجربة للمستخدم</p>
+            <div class="contact-buttons">
+                <a href="tel:01557290660" class="contact-btn contact-call">
+                    📞 اتصال فوري
+                </a>
+                <a href="https://wa.me/201557290660" target="_blank" class="contact-btn contact-whatsapp">
+                    💬 محادثة واتساب
+                </a>
+            </div>
+            
+            <div class="note" style="margin-top: 25px;">
+                <strong>💡 ملاحظة:</strong> الأسعار المذكورة هي أسعار أساسية وقد تختلف حسب المسافة ونوع المشكلة. اتصل بنا للحصول على سعر دقيق.
             </div>
         </div>
-    </footer>
+    </div>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    
+    <!-- الفوتر -->
+    <div class="footer">
+        <div class="footer-logo">ونش إنقاذ العلمين</div>
+        <p class="footer-tagline">الإنقاذ السريع والمضمون على الطريق - نصل إليك أينما كنت في أسرع وقت</p>
+        
+        <div class="social-links">
+            <a href="https://wa.me/201557290660" target="_blank" class="social-link" title="واتساب">💬</a>
+            <a href="tel:01557290660" class="social-link" title="اتصال هاتفي">📞</a>
+        </div>
+        
+        <div class="copyright">
+            © 2023 ونش إنقاذ العلمين - خدمة الإنقاذ على الطريق<br>
+            جميع الحقوق محفوظة | تصميم متخصص للجوالات
+        </div>
+    </div>
+
     <script>
-        // ===== Initialize Particles.js =====
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#d69e2e" },
-                shape: { type: "circle" },
-                opacity: { value: 0.3, random: true },
-                size: { value: 3, random: true },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: "#e53e3e",
-                    opacity: 0.2,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: { enable: true, mode: "repulse" },
-                    onclick: { enable: true, mode: "push" }
-                }
-            }
-        });
-
-        // ===== Winch Controls =====
-        function rotateWinch(direction) {
-            const winch = document.querySelector('.winch-model');
-            winch.style.transform = direction === 'left' 
-                ? 'rotateY(-15deg)' 
-                : 'rotateY(15deg)';
+        // كود جافاسكريبت بسيط لتأثيرات إضافية
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚛 موقع ونش إنقاذ العلمين جاهز للعمل!');
+            console.log('📞 رقم الطوارئ: 01557290660');
+            console.log('💬 واتساب: https://wa.me/201557290660');
             
-            setTimeout(() => {
-                winch.style.transform = 'rotateY(0deg)';
-            }, 500);
+            // إضافة تأثير عند النقر على الأزرار
+            const buttons = document.querySelectorAll('.call-btn, .whatsapp-btn, .contact-btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // تأثير الاهتزاز البسيط
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                    
+                    // تسجيل الحدث (ممكن تضيف تحليلات هنا)
+                    console.log('تم النقر على: ' + this.textContent.trim());
+                });
+            });
             
-            playSound('click');
-        }
-
-        function liftWinch() {
-            const winch = document.querySelector('.winch-model i');
-            winch.style.transform = 'translateY(-20px)';
+            // إضافة تأثير التمرير التدريجي
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+            
+            // إضافة تاريخ اليوم في console
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            console.log('📅 تاريخ اليوم: ' + now.toLocaleDateString('ar-EG', options));
+            
+            // رسالة ترحيب عند فتح الموقع
             setTimeout(() => {
-                winch.style.transform = 'translateY(0)';
+                console.log('👋 مرحباً بك في موقع ونش إنقاذ العلمين!');
+                console.log('🚀 الموقع مصمم خصيصاً للجوالات للوصول السريع للخدمة');
             }, 1000);
-            playSound('winch');
-        }
-
-        function activateLights() {
-            const winch = document.querySelector('.winch-model');
-            winch.style.boxShadow = '0 0 50px ' + (winch.style.boxShadow ? 'transparent' : 'rgba(214, 158, 46, 0.5)');
-            playSound('light');
-        }
-
-        // ===== Countdown Timer =====
-        let timer = 15 * 60; // 15 minutes in seconds
-        const timerElement = document.getElementById('timer');
-
-        function updateTimer() {
-            const minutes = Math.floor(timer / 60);
-            const seconds = timer % 60;
-            timerElement.textContent = 
-                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            
-            if (timer > 0) {
-                timer--;
-            } else {
-                timerElement.textContent = "00:00";
-                timerElement.style.color = "#e53e3e";
-                playSound('arrival');
-            }
-        }
-
-        setInterval(updateTimer, 1000);
-
-        function resetTimer() {
-            timer = 15 * 60;
-            timerElement.style.color = "";
-            playSound('reset');
-        }
-
-        // ===== Service Selection =====
-        function selectService(type) {
-            const cards = document.querySelectorAll('.service-card');
-            cards.forEach(card => card.style.borderColor = 'rgba(214, 158, 46, 0.1)');
-            
-            event.currentTarget.style.borderColor = '#d69e2e';
-            event.currentTarget.style.boxShadow = '0 30px 60px rgba(214, 158, 46, 0.3)';
-            
-            playSound('select');
-            
-            // Scroll to contact form
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // ===== Form Submission =====
-        document.getElementById('serviceForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            playSound('success');
-            alert('تم استلام طلبك بنجاح! سنتواصل معك خلال دقيقة.');
-            this.reset();
         });
-
-        // ===== Sound Effects =====
-        function playSound(type) {
-            // In a real site, you would use actual audio files
-            console.log('Playing sound:', type);
-            
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            
-            if (type === 'click') {
-                const oscillator = audioContext.createOscillator();
-                oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
-                oscillator.connect(audioContext.destination);
-                oscillator.start();
-                oscillator.stop(audioContext.currentTime + 0.1);
-            }
-        }
-
-        // ===== Testimonials Auto Scroll =====
-        let scrollPosition = 0;
-        const slider = document.getElementById('testimonialsSlider');
         
-        function autoScrollTestimonials() {
-            if (slider) {
-                scrollPosition += 1;
-                if (scrollPosition >= slider.scrollWidth / 2) {
-                    scrollPosition = 0;
-                }
-                slider.scrollLeft = scrollPosition;
-            }
+        // دالة بسيطة لنسخ رقم الهاتف
+        function copyPhoneNumber() {
+            const phoneNumber = '01557290660';
+            navigator.clipboard.writeText(phoneNumber).then(() => {
+                alert('تم نسخ رقم الهاتف: ' + phoneNumber);
+            });
         }
-        
-        setInterval(autoScrollTestimonials, 50);
-
-        // ===== Set Current Year =====
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // ===== Typing Effect =====
-        const typingText = "الأسطورة تبدأ من هنا... حيث السرعة تلتقي بالاحترافية";
-        let charIndex = 0;
-        const typingElement = document.querySelector('.typing');
-        
-        if (typingElement) {
-            function typeWriter() {
-                if (charIndex < typingText.length) {
-                    typingElement.textContent += typingText.charAt(charIndex);
-                    charIndex++;
-                    setTimeout(typeWriter, 100);
-                }
-            }
-            
-            // Start typing after a delay
-            setTimeout(typeWriter, 1000);
-        }
-
-        // ===== Glitch Effect =====
-        function triggerGlitch() {
-            const glitch = document.querySelector('.glitch');
-            if (glitch) {
-                glitch.classList.add('glitch-active');
-                setTimeout(() => {
-                    glitch.classList.remove('glitch-active');
-                }, 300);
-            }
-        }
-        
-        setInterval(triggerGlitch, 5000);
-
-        console.log('🚀 موقع أسطورة الإنقاذ جاهز!');
-        console.log('📞 رقم الطوارئ: 01557290660');
-        console.log('💬 واتساب: https://wa.me/201557290660');
-        console.log('✨ استمتع بالتجربة التفاعلية!');
     </script>
 </body>
-</html>
+    </html>

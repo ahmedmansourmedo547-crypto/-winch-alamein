@@ -126,7 +126,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.ibb.co/s9-Bt-TCW0/396474923-1027372161430218-7779886149323168436-n.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -245,6 +245,22 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+
         .service-icon {
             background-color: var(--primary-color);
             color: white;
@@ -268,10 +284,102 @@
             margin-bottom: 20px;
         }
 
+        /* Featured Image Section */
+        .featured-image {
+            padding: 40px 0;
+            background-color: #f8f9fa;
+        }
+
+        .featured-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .featured-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .featured-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .featured-text {
+            flex: 1;
+        }
+
+        .featured-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .featured-text p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: var(--shadow);
+        }
+
+        .gallery-item.featured {
+            grid-column: span 2;
+            height: 300px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
         /* Contact Section */
         .contact {
             padding: 80px 0;
-            background-color: #f8f9fa;
+            background-color: white;
         }
 
         .contact-container {
@@ -400,6 +508,15 @@
                 width: 80%;
                 justify-content: center;
             }
+            
+            .featured-container {
+                flex-direction: column;
+            }
+            
+            .gallery-item.featured {
+                grid-column: span 1;
+                height: 250px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -442,6 +559,10 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
         }
 
         @media (max-width: 576px) {
@@ -457,8 +578,12 @@
                 width: 100%;
             }
             
-            .services, .contact {
+            .services, .contact, .gallery {
                 padding: 50px 0;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -485,6 +610,7 @@
                 <ul>
                     <li><a href="#home">الرئيسية</a></li>
                     <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#gallery">معرض الصور</a></li>
                     <li><a href="#contact">اتصل بنا</a></li>
                 </ul>
             </nav>
@@ -508,6 +634,21 @@
         </div>
     </section>
 
+    <!-- Featured Image Section -->
+    <section class="featured-image">
+        <div class="container featured-container">
+            <div class="featured-img">
+                <!-- صورتك الثانية - ونش من الأمام -->
+                <img src="https://i.ibb.co/XNWNVfs/IMG-20231013-WA0004.jpg" alt="ونش إنقاذ العلمين - المعدات الحديثة">
+            </div>
+            <div class="featured-text">
+                <h3>لماذا تختار ونش إنقاذ العلمين؟</h3>
+                <p>نحن نقدم خدمات إنقاذ سريعة ومحترفة باستخدام أحدث المعدات والتقنيات. فريقنا مدرب على أعلى مستوى للتعامل مع جميع حالات الطوارئ على الطريق. نحن نضمن وصولاً سريعاً إلى موقعك في أي وقت، ليلاً أو نهاراً، مع الحفاظ على سلامة مركبتك خلال عملية الإنقاذ.</p>
+                <p>رسالتنا هي توفير خدمة موثوقة وآمنة تعيدك إلى الطريق بأسرع وقت ممكن، مع الاهتمام بكل التفاصيل التي تضمن رضاك التام عن الخدمة.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
@@ -518,8 +659,9 @@
             
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-car-crash"></i>
+                    <div class="service-img">
+                        <!-- صورة افتراضية للخدمة الأولى -->
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ونش إنقاذ السيارات">
                     </div>
                     <div class="service-content">
                         <h3>ونش إنقاذ السيارات</h3>
@@ -528,8 +670,9 @@
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-road"></i>
+                    <div class="service-img">
+                        <!-- صورة افتراضية للخدمة الثانية -->
+                        <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="خدمة السلامة على الطريق">
                     </div>
                     <div class="service-content">
                         <h3>خدمة السلامة على الطريق</h3>
@@ -538,8 +681,9 @@
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-truck-moving"></i>
+                    <div class="service-img">
+                        <!-- صورة افتراضية للخدمة الثالثة -->
+                        <img src="https://images.unsplash.com/photo-1593941707882-a5bba5338fe2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="نقل المركبات الثقيلة">
                     </div>
                     <div class="service-content">
                         <h3>نقل المركبات الثقيلة</h3>
@@ -548,12 +692,73 @@
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-clock"></i>
+                    <div class="service-img">
+                        <!-- صورة افتراضية للخدمة الرابعة -->
+                        <img src="https://images.unsplash.com/photo-1611591437283-9e5b6a8b2b0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="خدمة 24 ساعة">
                     </div>
                     <div class="service-content">
                         <h3>خدمة 24 ساعة</h3>
                         <p>نحن متاحون على مدار الساعة طوال أيام الأسبوع لمساعدتك في أي وقت تحتاج فيه إلى خدمة الإنقاذ على الطريق، ليلاً أو نهاراً.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>معرض صور ونش الإنقاذ</h2>
+                <p>صور حقيقية لونش الإنقاذ الخاص بنا أثناء تقديم الخدمات للعملاء</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <!-- صورة افتراضية -->
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ونش الإنقاذ أثناء العمل">
+                    <div class="gallery-overlay">
+                        <h4>ونش الإنقاذ أثناء العمل</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <!-- صورة افتراضية -->
+                    <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="معدات الإنقاذ الحديثة">
+                    <div class="gallery-overlay">
+                        <h4>معدات الإنقاذ الحديثة</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item featured">
+                    <!-- صورتك الثالثة - ونش جانبي (مركز المعرض) -->
+                    <img src="https://i.ibb.co/7BGH6x8/396496902-1027372194763548-3909327211548083276-n.jpg" alt="ونش إنقاذ العلمين - الجانب الأيمن">
+                    <div class="gallery-overlay">
+                        <h4>ونش إنقاذ العلمين - معدات متخصصة</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <!-- صورة افتراضية -->
+                    <img src="https://images.unsplash.com/photo-1611591437283-9e5b6a8b2b0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="خدمة الإنقاذ الليلية">
+                    <div class="gallery-overlay">
+                        <h4>خدمة الإنقاذ الليلية</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <!-- صورة افتراضية -->
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="إنقاذ السيارات المعطلة">
+                    <div class="gallery-overlay">
+                        <h4>إنقاذ السيارات المعطلة</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <!-- صورة افتراضية -->
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="الوصول السريع للحوادث">
+                    <div class="gallery-overlay">
+                        <h4>الوصول السريع للحوادث</h4>
                     </div>
                 </div>
             </div>
@@ -673,6 +878,7 @@
                     <ul>
                         <li><a href="#home">الرئيسية</a></li>
                         <li><a href="#services">خدماتنا</a></li>
+                        <li><a href="#gallery">معرض الصور</a></li>
                         <li><a href="#contact">اتصل بنا</a></li>
                     </ul>
                 </div>
@@ -747,4 +953,4 @@
         });
     </script>
 </body>
-</html>
+    </html>
